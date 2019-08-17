@@ -1,0 +1,10 @@
+cmake_minimum_required(VERSION 2.8.9)
+include_directories(src)
+link_libraries(gdi32.lib user32.lib d3dcompiler.lib d3d11.lib xinput.lib)
+file(GLOB SOURCES "src/*.cpp")
+project(d3d11withcode)
+add_executable(d3d11withcode ${SOURCES})
+
+if(MSVC)
+    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} /SUBSYSTEM:WINDOWS")
+endif()
